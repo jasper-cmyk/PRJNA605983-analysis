@@ -105,8 +105,8 @@ python3 scripts/visualize_tree.py
 |---------|-----------|------------|
 | Raw reads (PRJNA605983) | SRR11092056, SRR11092057, SRR11092059, SRR11092061 | NCBI SRA |
 | Assembled genomes (PRJCA002163) | SAMC311431–SAMC311531 | NGDC |
-| BAM files (this analysis) | [DOI placeholder] | Zenodo |
-| Code (this repository) | [DOI placeholder] | Zenodo / GitHub |
+| BAM files (this analysis) | 10.5281/zenodo.21136779 | Zenodo |
+| Code (this repository) | 10.5281/zenodo.21136779 | Zenodo / GitHub |
 
 ---
 

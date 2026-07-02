@@ -1,0 +1,31 @@
+# Reference sequences used in this analysis
+# Download with: efetch -db nuccore -id <ACCESSION> -format fasta > <name>.fasta
+# Requires NCBI E-utilities (https://www.ncbi.nlm.nih.gov/books/NBK179288/)
+
+# SARS-CoV-2 reference genome
+NC_045512.2      # Wuhan-Hu-1 (complete genome)
+
+# Bat coronaviruses (outgroups for phylogeny)
+MN996532.2       # RaTG13 (Rhinolophus affinis bat CoV)
+MG772933.1       # Bat SARS-like CoV ZC45
+MG772934.1       # Bat SARS-like CoV ZXC21
+
+# SpyCas9 scaffold
+KM099231.1       # Streptococcus pyogenes Cas9 (SpCas9)
+
+# H7N9 influenza A (hemagglutinin)
+KC853766.1       # A/Anhui/1/2013(H7N9) HA
+CY121687.1       # A/Shanghai/1/2013(H7N9) HA
+
+# Nipah virus
+AY988601.1       # Nipah virus Bangladesh strain (nucleoprotein)
+
+# Zhou Yusen patent sequence (CN111333704B)
+# SEQ ID NO. 4 — RBD-Fc fusion, no interposed linker
+# Manually extracted from patent document CN111333704B (CNIPA)
+# File: reference/ZY_RBD_Fc_patent.fasta
+
+# Lentiviral vector elements
+J04514.1         # WPRE (Woodchuck Hepatitis Virus Posttranscriptional Regulatory Element)
+J02428.1         # VSV-G (Vesicular stomatitis virus G protein)
+NC_001402.1      # HIV-1 (pNL4-3, lentiviral backbone reference)

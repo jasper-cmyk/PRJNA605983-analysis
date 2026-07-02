@@ -1,0 +1,30 @@
+# Raw sequencing reads (too large; download via 01_download_reads.sh)
+reads/
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+
+# BAM files (deposit on Zenodo separately)
+*.bam
+*.bam.bai
+
+# BWA index files (regenerate with: bwa index <reference.fasta>)
+*.amb
+*.ann
+*.bwt
+*.pac
+*.sa
+*.fai
+
+# IQ-TREE2 checkpoint files
+*.ckp.gz
+
+# Large intermediate files
+*.log
+mafft*.log
+
+# OS
+.DS_Store
+__pycache__/
+*.pyc

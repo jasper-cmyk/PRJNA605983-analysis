@@ -4,7 +4,7 @@
 **Affiliations:** ¹Sovereign Health Botanicals, Ghent, Belgium · ²CCassured, Ulvenhout, The Netherlands  
 **Corresponding author:** R. Louwen — [r.louwen@ccassured.com](mailto:r.louwen@ccassured.com)
 
-> This repository contains all code, reference sequences, and result summaries supporting the *Matters Arising* comment submitted to *Nature* in response to Zhou et al. (2020, PMID 32015507).
+> This repository contains all code, reference sequences, and result summaries supporting the correspondence on Zhou et al. (2020, PMID 32015507), currently in preparation for submission to *Nature* or an equivalent peer-reviewed venue.
 
 ---
 
@@ -112,7 +112,7 @@ python3 scripts/visualize_tree.py
 
 ## Citation
 
-Vermeer J, Louwen R. *Anomalies in the raw sequencing data of the first SARS-CoV-2 patient samples: a Matters Arising comment on Zhou et al. (2020).* Submitted to *Nature*, July 2026.
+Vermeer J, Louwen R. *Anomalies in the raw sequencing data of the first SARS-CoV-2 patient samples.* Manuscript in preparation, July 2026.
 
 ---
 

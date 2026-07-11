@@ -18,7 +18,7 @@ This analysis identifies five categories of anomalies in the publicly available 
 
 ---
 
-## Six Key Findings
+## Seven Key Findings
 
 ### 1. RBD-Fc Fusion Sequences and Nucleotide Clonality (Sections 1–2)
 

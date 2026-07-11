@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
 Supplemental Figures 3 & 4 — Vermeer & Louwen 2026
-Reads real samtools depth files for all 5 HiSeq BALF samples.
+Reads real samtools depth files for all 5 deep-sequenced BALF samples (MGISEQ-2000RS).
+Note: NCBI SRA incorrectly lists these as Illumina HiSeq 3000; platform confirmed MGISEQ-2000RS
+by original filename prefix v300043428 and depositor confirmation (Louwen, July 2026).
 """
 
 import matplotlib
@@ -20,7 +22,7 @@ L_H7  = 1683
 L_NiV = 18252
 L_COV = 29903
 
-# ── Samples (HiSeq) ───────────────────────────────────────────────────────────
+# ── Samples (MGISEQ-2000RS) ───────────────────────────────────────────────────
 SAMPLES = [
     ("WIV02-2", "SRR11092063", "#1d4ed8"),
     ("WIV04-2", "SRR11092062", "#7c3aed"),

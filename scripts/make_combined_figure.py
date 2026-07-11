@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """
-Supplemental Figure 3 — Platform-stratified coverage profiles
+Supplemental Figure 3 — Library-stratified coverage profiles (MGISEQ-2000RS)
 H7N9 HA / Nipah / SARS-CoV-2 in PRJNA605983 BALF libraries
-MGISEQ-2000RS (WIV07-2) vs HiSeq 3000 (WIV02-2)
+WIV07-2 (SRR11092059) vs WIV02-2 (SRR11092063) — both MGISEQ-2000RS
+Note: NCBI SRA incorrectly lists PRJNA605983 platform as "Illumina HiSeq 3000"
+      Filename prefix v300043428 identifies MGISEQ-2000RS (BGI flowcell v300)
+      Confirmed by depositor: Louwen, "Sequencing platforms used.docx", July 2026
 Real depth data from BWA-MEM alignments verified 10 July 2026
 Vermeer & Louwen 2026  |  300 dpi
 """
@@ -49,7 +52,8 @@ def cap99(arr):
 
 
 # ── Panel definitions ──────────────────────────────────────────────────────────
-# MGISEQ WIV07-2 (SRR11092059)  vs  HiSeq 3000 WIV02-2 (SRR11092063)
+# MGISEQ-2000RS WIV07-2 (SRR11092059)  vs  MGISEQ-2000RS WIV02-2 (SRR11092063)
+# (NCBI SRA metadata incorrectly labels these as Illumina HiSeq 3000)
 #
 # Stats from BWA-MEM flagstat (BAMs deleted after depth extraction):
 #   WIV07-2  H7N9 : 18,046 primary reads  (234.6 RPM)
@@ -70,10 +74,10 @@ GROUPS = [
                  reads="76,052",
                  narrative="patient SARS-CoV-2 infection  (both platforms)",
                  length=L_COV),
-            dict(platform="HiSeq 3000  WIV02-2 (SRR11092063)",
+            dict(platform="MGISEQ-2000RS  WIV02-2 (SRR11092063)",
                  depthfile="WIV02-2_SARS2_depth.txt",
                  reads="365,033",
-                 narrative="patient SARS-CoV-2 infection  (higher depth on HiSeq 3000)",
+                 narrative="patient SARS-CoV-2 infection  (higher depth in WIV02-2 library)",
                  length=L_COV),
         ]
     },
@@ -87,10 +91,10 @@ GROUPS = [
                  reads="18,046",
                  narrative="uniform plateau: cloned insert signature  (234.6 RPM)",
                  length=L_H7),
-            dict(platform="HiSeq 3000  WIV02-2 (SRR11092063)",
+            dict(platform="MGISEQ-2000RS  WIV02-2 (SRR11092063)",
                  depthfile="WIV02-2_H7N9_depth.txt",
                  reads="106",
-                 narrative="low-level signal  (0.79 RPM  ·  297× RPM differential vs MGISEQ)",
+                 narrative="low-level signal  (0.79 RPM  ·  297× library-specific RPM differential)",
                  length=L_H7),
         ]
     },
@@ -104,10 +108,10 @@ GROUPS = [
                  reads="683",
                  narrative="genuine signal (HDV ribozyme + T7 terminator documented by Zhang 2021)",
                  length=L_NiV),
-            dict(platform="HiSeq 3000  WIV02-2 (SRR11092063)",
+            dict(platform="MGISEQ-2000RS  WIV02-2 (SRR11092063)",
                  depthfile="WIV02-2_Nipah_depth.txt",
                  reads="0",
-                 narrative="PLATFORM-SPECIFIC: 0/134,166,390 reads mapped  →  MGISEQ library contaminant",
+                 narrative="SAMPLE-SPECIFIC: 0/134,166,390 reads mapped  →  library-specific contaminant (not platform-wide)",
                  length=L_NiV),
         ]
     },
@@ -118,10 +122,10 @@ N_GROUPS = 3
 fig = plt.figure(figsize=(16, 22), facecolor='white')
 
 fig.text(0.5, 0.995,
-    'Supplemental Figure 3 — Platform-stratified read coverage in PRJNA605983 BALF samples',
+    'Supplemental Figure 3 — Library-stratified read coverage in PRJNA605983 BALF samples (MGISEQ-2000RS)',
     ha='center', va='top', fontsize=12, fontweight='bold', color='#0f172a')
 fig.text(0.5, 0.982,
-    'MGISEQ-2000RS (WIV07-2) vs HiSeq 3000 (WIV02-2)  ·  BWA-MEM alignments verified 10 July 2026  ·  Vermeer & Louwen 2026',
+    'WIV07-2 (SRR11092059) vs WIV02-2 (SRR11092063)  ·  both MGISEQ-2000RS  ·  BWA-MEM alignments verified 10 July 2026  ·  Vermeer & Louwen 2026',
     ha='center', va='top', fontsize=9, color='#475569')
 
 hs = gridspec.GridSpec(
@@ -165,7 +169,7 @@ for idx, ((group, panel), row) in enumerate(zip(panel_list, row_map)):
                 bbox=dict(boxstyle='round,pad=0.25', facecolor='white',
                           edgecolor=color, linewidth=1.2, alpha=0.97))
 
-    plat_bg = '#1e3a5f' if 'MGISEQ' in panel["platform"] else '#1a3a1a'
+    plat_bg = '#1e3a5f' if 'WIV07' in panel["platform"] else '#2d5016'
     ax.text(0.003, 0.97, panel["platform"],
             transform=ax.transAxes, fontsize=8, fontweight='bold',
             color='white', va='top', ha='left',
@@ -194,14 +198,14 @@ last_ax.set_xticklabels([f'{int(x):,}' for x in last_ax.get_xticks()],
 last_ax.set_xlabel('Genomic position (nt)', fontsize=9, color='#475569')
 
 legend_elements = [
-    mpatches.Patch(facecolor='#1e3a5f', label='MGISEQ-2000RS  —  WIV07-2 (SRR11092059)'),
-    mpatches.Patch(facecolor='#1a3a1a', label='HiSeq 3000  —  WIV02-2 (SRR11092063)  [platform control]'),
+    mpatches.Patch(facecolor='#1e3a5f', label='MGISEQ-2000RS  —  WIV07-2 (SRR11092059)  [high H7N9/Nipah library]'),
+    mpatches.Patch(facecolor='#2d5016', label='MGISEQ-2000RS  —  WIV02-2 (SRR11092063)  [low H7N9, Nipah-absent library]'),
 ]
 fig.legend(handles=legend_elements, loc='lower center', ncol=2,
            fontsize=8, frameon=True, framealpha=0.95,
            edgecolor='#cbd5e1', bbox_to_anchor=(0.5, 0.012))
 
-outpath = os.path.join(OUT, "Suppl_Fig3_combined_platform_stratified.png")
+outpath = os.path.join(OUT, "Suppl_Fig3_combined_library_stratified.png")
 fig.savefig(outpath, dpi=300, bbox_inches='tight', facecolor='white')
 plt.close(fig)
 print(f"Saved: {outpath}")

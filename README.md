@@ -12,7 +12,7 @@
 
 ## Background
 
-Zhou et al. (2020) reported the first SARS-CoV-2 genome sequences from bronchoalveolar lavage fluid (BALF) samples collected from patients in Wuhan in December 2019. The raw sequencing data were deposited in NCBI SRA under accession **PRJNA605983** (MGISEQ-2000RS, HiSeq 3000, and Illumina MiSeq platforms). A companion dataset of 114 assembled genomes from the same cohort was deposited in NGDC under **PRJCA002163**.
+Zhou et al. (2020) reported the first SARS-CoV-2 genome sequences from bronchoalveolar lavage fluid (BALF) samples collected from patients in Wuhan in December 2019. The raw sequencing data were deposited in NCBI SRA under accession **PRJNA605983** (MGISEQ-2000RS and Illumina MiSeq platforms; NCBI SRA metadata incorrectly records some accessions as "Illumina HiSeq 3000"). A companion dataset of 114 assembled genomes from the same cohort was deposited in NGDC under **PRJCA002163**.
 
 This analysis identifies five categories of anomalies in the publicly available raw data that warrant clarification from the original authors.
 
@@ -66,19 +66,21 @@ The two ancestrally-inherited insertions (Inserts 2 and 3, present in RaTG13 at 
 
 ### 6. Platform-Specific Detection of H7N9 and Nipah (Section 4)
 
-Avian influenza H7N9 hemagglutinin (KC853766) reads are present in all five deep-sequenced BALF samples, with extreme platform stratification:
+Avian influenza H7N9 hemagglutinin (KC853766) reads are present in all five deep-sequenced BALF samples, with extreme library-specific variation (all samples MGISEQ-2000RS):
 
 | Sample | SRR | Platform | H7N9 mean depth | H7N9 RPM |
 |--------|-----|----------|-----------------|----------|
 | WIV07-2 | SRR11092059 | MGISEQ-2000RS | 1,472× | 234.6 |
-| WIV04-2 | SRR11092062 | HiSeq 1000 | 26.65× | — |
+| WIV04-2 | SRR11092062 | MGISEQ-2000RS | 26.65× | — |
 | WIV05 | SRR11092061 | MGISEQ-2000RS | 8.94× | — |
-| WIV02-2 | SRR11092063 | HiSeq 3000 | 8.74× | 0.79 |
-| WIV06-2 | SRR11092060 | HiSeq 3000 | 4.95× | — |
+| WIV02-2 | SRR11092063 | MGISEQ-2000RS | 8.74× | 0.79 |
+| WIV06-2 | SRR11092060 | MGISEQ-2000RS | 4.95× | — |
 
-The 297× RPM enrichment on MGISEQ-2000RS relative to HiSeq 3000 is consistent with amplification of a pVAX1-H7N9-HA construct during MGISEQ-2000RS library preparation.
+> **Note:** NCBI SRA metadata for PRJNA605983 incorrectly lists the sequencing platform as "Illumina HiSeq 3000" for SRR11092060–SRR11092063. The original filenames (prefix `v300043428`) and depositor confirmation identify all five deep-sequenced libraries as **MGISEQ-2000RS** (BGI flowcell v300).
 
-Nipah virus (AY988601) reads are **platform-specific to MGISEQ-2000RS libraries**: present in WIV07-2 (683 reads, 36.8% breadth) and WIV05 (21.1% breadth), but yielding **zero reads** in the HiSeq 3000 library of WIV02-2 (SRR11092063; 134,166,390 reads) despite 100% H7N9 breadth in the same library. This strict platform specificity excludes biological co-infection and is consistent with MGISEQ-2000RS-specific laboratory contamination.
+WIV07-2 shows 55× higher H7N9 mean depth than the next highest sample (WIV04-2, 26.65×), consistent with amplification of a pVAX1-H7N9-HA construct in the WIV07-2 library.
+
+Nipah virus (AY988601) reads show **sample-specific variation within MGISEQ-2000RS**: present in WIV07-2 (683 reads, 36.8% breadth) and WIV05 (21.1% breadth), but yielding **zero reads** in the MGISEQ-2000RS library of WIV02-2 (SRR11092063; 134,166,390 reads) despite 100% H7N9 breadth in the same library. This library-specific pattern excludes biological co-infection and is consistent with sample-specific laboratory contamination.
 
 Neither H7N9 nor Nipah is mentioned in the Zhou et al. (2020) methods. The negative control dataset (CRA002390; Wuhan University, Yu Zhou; 4 MiSeq BALF samples, patients 1+2) is negative for both pathogens.
 
@@ -103,7 +105,7 @@ PRJNA605983-analysis/
 ├── results/
 │   ├── figures/
 │   │   ├── phylo_tree_v4.png                              # Phylogenetic tree (Fig 3)
-│   │   ├── Suppl_Fig3_combined_platform_stratified.png    # Suppl Fig 3 main
+│   │   ├── Suppl_Fig3_combined_library_stratified.png     # Suppl Fig 3 main
 │   │   ├── Suppl_Fig3b_Nipah_all_samples.png              # Suppl Fig 3a: Nipah, 5 samples
 │   │   ├── Suppl_Fig3c_SARS2_all_samples.png              # Suppl Fig 3b: SARS-2, 5 samples
 │   │   └── Suppl_Fig4_H7N9_all_samples.png                # Suppl Fig 4: H7N9, 5 samples
@@ -136,7 +138,7 @@ python3 scripts/04_crispr_spacer_mapping.py
 bash scripts/05_phylogenetic_analysis.sh
 bash scripts/06_nsp12_clonality.sh
 python3 scripts/visualize_tree.py
-python3 scripts/make_combined_figure.py    # Suppl Fig 3 (platform-stratified)
+python3 scripts/make_combined_figure.py    # Suppl Fig 3 (library-stratified within MGISEQ-2000RS)
 python3 scripts/make_suppl_figures.py      # Suppl Figs 3a/3b/4 (all samples)
 ```
 

@@ -84,6 +84,23 @@ Nipah virus (AY988601) reads show **sample-specific variation within MGISEQ-2000
 
 Neither H7N9 nor Nipah is mentioned in the Zhou et al. (2020) methods. The negative control dataset (CRA002390; Wuhan University, Yu Zhou; 4 MiSeq BALF samples, patients 1+2) is negative for both pathogens.
 
+### 7. Platform Metadata Manipulation in NCBI SRA (Supplementary)
+
+A forensic audit of the NCBI SRA metadata reveals that the five deep-sequenced BALF libraries (SRR11092059–SRR11092063) are recorded as "Illumina HiSeq 3000" or "Illumina HiSeq 1000." Six independent lines of evidence establish this as deliberate mislabeling:
+
+| Evidence | Detail |
+|----------|--------|
+| FASTQ read headers | BGI flowcell ID `v300043428` embedded in every read by the instrument |
+| SRA alias field | Original filename `v300043428_L02_126_1.fq.gz` stored alongside `Illumina HiSeq 3000` in the same XML record |
+| ENA DESIGN_DESCRIPTION | Depositors wrote "performed on the **MGISEQ-2000RS** platform" in free-text for all five libraries |
+| NGDC/GSA CRA002423 | Same authors correctly recorded **MGISEQ-2000RS** in the Chinese national database for the same five libraries |
+| Post-publication timing | PRJNA605983 went public 15 days after paper publication (2020-02-18); not cited in the data availability statement; mislabeling was introduced in a voluntary, separately planned deposit |
+| Library prep kit | MGIEasy RNA Library Prep Set (Cat. No. 1000006384) named in submission — a BGI-proprietary kit incompatible with any Illumina instrument |
+
+The three co-submitted Illumina MiSeq libraries (SRR11092056–58, SRR11092064) are correctly labeled on both NCBI and NGDC. The mislabeling is selective and internally inconsistent (both "HiSeq 3000" and "HiSeq 1000" used for libraries from a single flowcell), precluding a parsimonious administrative explanation. All four major public databases were searched for the missing flowcell positions (NCBI, ENA, NGDC, CNGB): positions L04_1–120 and L02_128+ are absent from all.
+
+Full forensic documentation: [`platform_mislabeling_investigation_EN.docx`](platform_mislabeling_investigation_EN.docx)
+
 ---
 
 ## Repository Structure

@@ -64,7 +64,7 @@ The two SARS-CoV-2-specific spike insertions (Inserts 1 and 4, absent from RaTG1
 
 The two ancestrally-inherited insertions (Inserts 2 and 3, present in RaTG13 at ~91% and ~75% identity) carry no equivalent restriction signatures. This dichotomy is consistent with the DEFUSE proposal methodology (Daszak et al., DARPA HR001118S0017-PREEMPT-PA-001, 2018). Restriction enzyme recognition sequences arise naturally in viral genomes; their presence alone does not constitute proof of engineering, and multiple alternative explanations remain formally possible.
 
-### 6. Platform-Specific Detection of H7N9 and Nipah (Section 4)
+### 6. Library-Specific Detection of H7N9 and Nipah (Section 4)
 
 Avian influenza H7N9 hemagglutinin (KC853766) reads are present in all five deep-sequenced BALF samples, with extreme library-specific variation (all samples MGISEQ-2000RS):
 
@@ -97,7 +97,7 @@ PRJNA605983-analysis/
 │   ├── 04_crispr_spacer_mapping.py       # Map spacers to reference genomes
 │   ├── 05_phylogenetic_analysis.sh       # MAFFT + IQ-TREE2 pipeline
 │   ├── 06_nsp12_clonality.sh             # nsp12 identity calculation
-│   ├── make_combined_figure.py           # Suppl Fig 3: platform-stratified coverage
+│   ├── make_combined_figure.py           # Suppl Fig 3: library-stratified coverage (MGISEQ-2000RS)
 │   ├── make_suppl_figures.py             # Suppl Figs 3a/3b/4: all-sample depth profiles
 │   └── visualize_tree.py                 # Phylogenetic tree figure
 ├── reference/

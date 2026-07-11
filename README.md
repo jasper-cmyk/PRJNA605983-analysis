@@ -18,7 +18,7 @@ This analysis identifies five categories of anomalies in the publicly available 
 
 ---
 
-## Five Key Findings
+## Six Key Findings
 
 ### 1. RBD-Fc Fusion Sequences and Nucleotide Clonality (Sections 1–2)
 
@@ -55,7 +55,16 @@ IQ-TREE2 analysis (GTR+G, 1000 UFBoot, outgroups ZC45/ZXC21) reveals a pronounce
 
 RecCA-corrected phylogenetic rooting assigns **90.2% posterior probability to Lineage A** as the ancestral root (vs 8.0% in unconstrained models), separating the pandemic origin from the Huanan Seafood Market cluster (Lineage B).
 
-### 5. Platform-Specific Detection of H7N9 and Nipah (Section 4)
+### 5. Restriction Enzyme Signatures at Spike Insertions (Section 7)
+
+The two SARS-CoV-2-specific spike insertions (Inserts 1 and 4, absent from RaTG13) each carry restriction enzyme signatures characteristic of directional molecular cloning:
+
+- **Insert 1** (NC_045512.2 positions 21,740–21,829; 90 nt): flanked by NcoI-compatible sequences (CCATG / CATGGT). NcoI (CCATGG, 4-nt CATG overhang) is widely used for expression vector cloning. Wholly absent from RaTG13.
+- **Insert 4** (encompassing the furin cleavage site, FCS; positions 23,453–23,752): flanked by two NdeI recognition sequences (CATATG) at 65 nt and 560 nt upstream of the FCS. NdeI is the standard restriction site for directional insertion into pET-series expression vectors. The inter-NdeI distance of 495 nt falls within the size range routinely used for restriction-fragment-based inserts in coronavirus reverse genetics systems. The dual-NdeI flanking architecture is absent from RaTG13, where the FCS itself does not exist.
+
+The two ancestrally-inherited insertions (Inserts 2 and 3, present in RaTG13 at ~91% and ~75% identity) carry no equivalent restriction signatures. This dichotomy is consistent with the DEFUSE proposal methodology (Daszak et al., DARPA HR001118S0017-PREEMPT-PA-001, 2018). Restriction enzyme recognition sequences arise naturally in viral genomes; their presence alone does not constitute proof of engineering, and multiple alternative explanations remain formally possible.
+
+### 6. Platform-Specific Detection of H7N9 and Nipah (Section 4)
 
 Avian influenza H7N9 hemagglutinin (KC853766) reads are present in all five deep-sequenced BALF samples, with extreme platform stratification:
 

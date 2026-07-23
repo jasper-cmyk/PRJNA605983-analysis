@@ -43,7 +43,7 @@ The SpCas9 scaffold sequence (`GTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGT...`) 
 | SP5 | 8 | *Procr* | Endothelial Protein C receptor |
 | SP6 | 4 | *Cd68*-adjacent | — |
 
-All spacers are absent from hg38 and absent from all SARS-CoV-2 sequences. No equivalent reads were identified in the Illumina MiSeq platform control (WIV06; SRR11092056) at comparable depth, nor in the Illumina MiSeq library of the same sample (SRR11092057), consistent with an MGISEQ-specific origin. The independent negative control dataset (CRA002390; Wuhan University, Yu Zhou; 4 MiSeq BALF runs, same patients) yields zero scaffold hits on both forward and reverse strands.
+All spacers are absent from hg38 and absent from all SARS-CoV-2 sequences. No equivalent reads were identified in the Illumina MiSeq platform control (WIV06; SRR11092056) at comparable depth, consistent with an MGISEQ-specific origin. The independent negative control dataset (CRA002390; Wuhan University, Yu Zhou; 4 MiSeq BALF runs, same patients) yields zero scaffold hits on both forward and reverse strands.
 
 ### 3. GPS Metadata Anomaly (Section 5)
 

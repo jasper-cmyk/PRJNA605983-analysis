@@ -22,7 +22,7 @@ This analysis identifies five categories of anomalies in the publicly available 
 
 ### 1. RBD-Fc Fusion Sequences and Nucleotide Clonality (Sections 1–2)
 
-Reads mapping to the RBD-Fc junction of Zhou Yusen's patented SARS-CoV-2 vaccine construct (CN111333704B, SEQ ID NO. 4) are present in BALF samples collected in December 2019 — prior to the patent filing date of 24 February 2020. The RBD terminus transitions directly into the IgG1-Fc hinge zone without an interposed linker, consistent with the patent's "optimal embodiment."
+Assembled consensus genomes from BALF samples collected in December 2019 show a receptor-binding domain (RBD) region at 100.000% nucleotide identity to the RBD sequence used in Zhou Yusen's patented SARS-CoV-2 vaccine construct (CN111333704B, SEQ ID NO. 4), filed 24 February 2020. No reads spanning the RBD–Fc junction itself are detected in the raw sequencing data; reads cross-mapping to the construct's Fc region are identified as endogenous patient IgG antibody sequences.
 
 Independent nucleotide-level analysis of 111 PRJCA002163 assemblies reveals near-complete clonality at two independent genomic regions:
 - **RBD (667 nt):** 109/111 assemblies at 100.000% identity to NC_045512.2

@@ -30,5 +30,5 @@
 - SARS-CoV-2 mutatietempo: ~23/jaar over 29.903 nt genoom
 - RBD (667 nt): verwacht ~0.17 mutaties over 4 maanden (dec 2019 - apr 2020)
 - 0-1 mutaties per isolaat is statistisch plausibel maar extreem uniform
-- Gecombineerd met patent-match (Zhou Yusen CN111333704B): RBD was gefixeerd vóór uitbraak
+- Deze identiteit is tegen NC_045512.2 (wildtype), niet tegen de patentsequentie zelf — het patent-RBD (SEQ ID NO. 4, CN111333704B) is codon-geoptimaliseerd en wijkt 28% af van NC_045512.2 op nucleotideniveau (100% aminozuurniveau). Nucleotide-identiteit met de patentsequentie zelf is dus niet aangetoond, alleen dezelfde genomische coördinaten/aminozuursequentie.
 

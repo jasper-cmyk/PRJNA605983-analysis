@@ -20,6 +20,8 @@ Deze analyse gebruikt de **correcte SEQ5** uit `ZY_RBD_Fc_patent.fasta`:
 De BAM-bestanden `WIV05_vs_ZY.bam` en `WIV07-2_vs_ZY.bam` zijn reeds gealigned
 tegen deze correcte referentie (bevestigd via `samtools view -H`).
 
+**Update 24 juli 2026:** het WIV05-readaantal (36) uit de oorspronkelijke 29-juni-run bleek niet reproduceerbaar. Een verse re-alignment rechtstreeks vanaf de ruwe FASTQ (`SRR11092061`, dezelfde methode als `scripts/04_align_wiv05_to_seq5.sh`) geeft **28 unieke reads, posities 667–1152, gemiddelde diepte 7,50× (piek 23×)** — consistent met een onafhankelijke eerdere run van 8 juli. De cijfers hieronder zijn bijgewerkt naar dit gereproduceerde resultaat. WIV07-2-cijfers zijn niet opnieuw geverifieerd en ongewijzigd. De kernconclusie (nul junctie-reads, nul RBD-dekking) verandert niet.
+
 ---
 
 ## Resultaten
@@ -28,12 +30,12 @@ tegen deze correcte referentie (bevestigd via `samtools view -H`).
 
 | Dataset | Reads op SEQ5 | Gedekte basen | Coverage% | Mean depth | MQ |
 |---------|--------------|---------------|-----------|------------|-----|
-| WIV05 (SRR11092061, Illumina) | 36 | 330/1287 | 25.6% | 2.99× | **0** |
+| WIV05 (SRR11092061, Illumina) | 28 | 402/1287 | 31.2% | 7.50× (piek 23×) | **0** |
 | WIV07-2 (MGISEQ) | 12 | 303/1287 | 23.5% | 1.07× | **0** |
 
 ### 2. Positie-verdeling
 
-**WIV05:** Reads mappen uitsluitend op posities **667–1090** van SEQ5  
+**WIV05:** Reads mappen uitsluitend op posities **667–1152** van SEQ5  
 **WIV07-2:** Reads mappen uitsluitend op posities **667–1015** van SEQ5
 
 Beide datasets: **nul coverage** op posities 1–666.
@@ -60,7 +62,7 @@ Beide datasets: **nul coverage** op posities 1–666.
 
 ### A. Fc-reads zijn human IgG cross-mapping
 
-De 36 (WIV05) en 12 (WIV07-2) reads die wel alignen op SEQ5 bevinden zich
+De 28 (WIV05) en 12 (WIV07-2) reads die wel alignen op SEQ5 bevinden zich
 **uitsluitend** in het Fc-fragment (pos 667+). Kenmerkend:
 
 - **MQ = 0** voor alle reads in beide datasets  
